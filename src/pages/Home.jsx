@@ -8,11 +8,12 @@ import {
 import React, { useState } from "react";
 import "./Home.css";
 import { gallery } from "../assets/data";
+import { themeController } from "../contexts/AuthContext";
 function Home() {
     const [picture,setPicture]=useState(1)
     const [previousImage,setPreviousImage]=useState(0)
     const [nextImage,setNextImage]=useState(2)
-   
+    const {theme,themeChange} = themeController();
     const previous = ()=>{
         if(previousImage >=0){
             setPicture(previousImage)

@@ -1,15 +1,36 @@
 import { ShoppingBasket, Star } from "@mui/icons-material";
-import React from "react";
+import { Link, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import { gallery } from "../assets/data";
 import "./items.css";
+import axios from "../axios";
+import { themeController } from "../contexts/AuthContext";
+import { useState } from "react";
+import { CircularProgress } from "@mui/material";
+import AddItem from "../components/additem/AddItem";
 function Items() {
+  const {themes,theme} = themeController();
+  const [items,setItems] = useState(null);
+  const [opener,setOpener] = useState(false);
+  useEffect(()=>{
+    (async()=>{
+      const res = await axios.get('/index');
+      
+      setItems(res.data.products)
+    })()
+  },[])
+  
   return (
-    <div className="items">
-    <h1 style={{borderBottom:'2px solid lightgray'}}>Category</h1>
-      {gallery.map((k) => {
+    <div style={theme} className="items">
+    <div className="heading_top">
+    <h1>Category</h1>
+    <button onClick={()=>setOpener(true)}>Add Product</button>
+    </div>
+      {items ===null?<div>.....loading <CircularProgress/> </div>:items.map((k) => {
         return (
-          <div className="items_child">
-            <img src={k.image} alt="" />
+          <div key={k.id} className={theme===themes.light?"items_child light":"items_child dark"}>
+            <img src={'http://localhost:8000/storage/'+k.image} alt="" />
+          
             <div className="about">
               <span style={{fontSize:'20px'}}><b>{k.name}</b></span>
               <span>{k.price}</span>
@@ -18,14 +39,18 @@ function Items() {
                 {Array(k.rating)
                   .fill()
                   .map((_, i) => (
-                    <Star style={{ color: "goldenrod" }} />
+                    <Star key={i} style={{ color: "goldenrod" }} />
                   ))}
               </span>
-              <button>VIEW PRODUCT</button>
+              <Link to={`/item/${k.id}`}>
+
+              <button >VIEW PRODUCT</button>
+              </Link>
             </div>
           </div>
         );
       })}
+      {opener && <AddItem setOpener={setOpener}/>}
     </div>
   );
 }

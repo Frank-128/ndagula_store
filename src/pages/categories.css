@@ -23,7 +23,6 @@
 }
 .category_content{
     padding: 5%;
-    background-color: rgba(95, 112, 62,.7);
     box-shadow: 0px 0px 25px -10px lightgray;
     border-radius: 10px;
     display: flex;

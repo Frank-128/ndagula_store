@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Category from "../components/category/Category";
+import { themeController } from "../contexts/AuthContext";
 import "./categories.css";
 
 function Categories() {
+  const {themes,theme} =themeController();
   return (
     <div className="categories">
       <div className="ad">
         <img src="./the_ad.png" alt="logo" />
       </div>
-      <div className="category_content">
+      <div style={theme} className="category_content">
         <div className="content_title">Categories</div>
         <div className="categories_items">
           <Link to='/items'><Category name='men' image='./men.jpeg'/></Link>
