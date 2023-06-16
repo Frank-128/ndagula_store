@@ -32,8 +32,13 @@ align-items: center;
 .color_options{
     display: flex;
 }
-.size_options{
+.size_options,{
     display: flex;
+    
+}
+.prod_categories{
+    display:flex;
+    gap:10px;
 }
 .prod_sizes{
     display: flex;
@@ -59,4 +64,8 @@ align-items: center;
 .prod_buttons>button{
     border-radius: 12px;
     padding: 12px;
+}
+.cat_options{
+    display:flex;
+ 
 }

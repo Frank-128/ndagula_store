@@ -1,27 +1,36 @@
 .login{
     display:flex;
     flex-direction: column;
-    width:full;
+    width:100%;
     height:100vh;
     align-items:center;
     justify-content:center;
+    background-image: url('/login.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .label_name{
     position: absolute;
     top: 5%;
     font-weight: 800;
-    font-size: xx-large;
+    font-size: 70px;
+    color: rgb(26, 138, 26);
     
 }
+
 .login_form{
     width:60%;
     height:50%;
-    background-color:rgba(0, 0, 0, .2);
+    background-color:rgba(0, 0, 0, .8);
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     box-shadow: 0px 0px 25px -10px gray;
+    color: white;
 }
 
 
@@ -41,14 +50,21 @@ input{
     padding: 6px;
     border-radius: 10px;
 }
-.login_item>input:focus{
+.login_item input:focus{
     outline: 1px solid blue;
 }
 .button_container{
+    width: 100%;
     margin-top:8px;
+    display: flex;
+    justify-content: center;
 }
-button{
+.login button{
     padding: 12px;
-    border-radius: 15%;
+    border-radius: 15px;
     cursor:pointer;
+    width: 25%;
+    background-color: lightgreen;
+    border: none;
+    color: rgb(74, 72, 72);
 }

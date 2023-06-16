@@ -4,16 +4,17 @@ import { BarChart, CalendarMonth, Home, PieChart } from '@mui/icons-material'
 import { CartesianGrid, LineChart, Tooltip, XAxis,Line, Legend } from 'recharts'
 import { customers, orders,logs } from '../../assets/data'
 import { Badge, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { Link } from 'react-router-dom'
 function Dashboard() {
   return (
     <div className='dashboard'>
      <div className="heading">
        <div>
        <Home />
-       <span >Dashboard/</span>
+       <span >Dashboard/statistics</span>
        </div>
        <ul>
-        <li>Staticics</li>
+        <li><Link to='/admin'><span>Staticics</span></Link></li>
         <li>Customers(120)</li>
         <li>
             <CalendarMonth/><span>Oct 12 -</span>
@@ -51,7 +52,7 @@ function Dashboard() {
    <h1>Most bought items</h1>
    <LineChart
    width={900}
-   height={400}
+   height={500}
    data={orders}
    margin={{top:5,right:20,left:10,bottom:5}}
    >

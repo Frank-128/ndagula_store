@@ -1,6 +1,5 @@
 .header{
     display: flex;
-    
     flex-direction: row;
     background-color: rgb(233, 229, 229,);
     align-items: center;
@@ -12,22 +11,23 @@
     width: 100vw;
     z-index:999;
 }
-.shop{
+.shop a{
     font-size: larger;
     font-weight: bold;
     color:rgb(20, 109, 20);
 }
-.lists>ul{
+.header ul{
     list-style: none;
     display: flex;
     flex-direction: row;
     gap:20px;
 }
-.lists>ul>li{
+.header ul li{
     cursor:pointer;
     transition:all 0.3s ease;
+    
 }
-.lists>ul>li:hover{
+.header ul li:hover{
     scale:1.1;
     opacity: .6;
 }
@@ -37,7 +37,7 @@
     align-items: center;
     gap:20px;
 }
-.search>input{
+.search input{
     outline: none;
     border:none;
     width:100%;
@@ -51,25 +51,44 @@
     display: flex;
     align-items: center;
 }
-.avatar>img{
+.avatar img{
     width: 40px;
     height: 40px;
     border-radius: 48%;
 }
 .avatar{
+    
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap:5px;
 }
-.link{
+.header a{
     text-decoration:none;
-    color:inherit;
+    
+    
 }
 .active{
     text-shadow: 3px;
     opacity: 0.7;
     scale:1.15;
-    color:darkgreen;
+    border-bottom: 1px solid #03381c;
+    
+}
+
+.signout{
+    position:absolute;
+    top: 70px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #eae5e5;
+    cursor: pointer;
+   
+
+}
+.user-avatar{
+    cursor: pointer;
 }

@@ -7,14 +7,15 @@ import axios from "../axios";
 import { themeController } from "../contexts/AuthContext";
 import { useState } from "react";
 import { CircularProgress } from "@mui/material";
-import AddItem from "../components/additem/AddItem";
+
+
 function Items() {
   const {themes,theme} = themeController();
   const [items,setItems] = useState(null);
-  const [opener,setOpener] = useState(false);
+
   useEffect(()=>{
     (async()=>{
-      const res = await axios.get('/index');
+      const res = await axios.get('/showAllProducts');
       
       setItems(res.data.products)
     })()
@@ -24,7 +25,7 @@ function Items() {
     <div style={theme} className="items">
     <div className="heading_top">
     <h1>Category</h1>
-    <button onClick={()=>setOpener(true)}>Add Product</button>
+   
     </div>
       {items ===null?<div>.....loading <CircularProgress/> </div>:items.map((k) => {
         return (
@@ -50,7 +51,7 @@ function Items() {
           </div>
         );
       })}
-      {opener && <AddItem setOpener={setOpener}/>}
+      
     </div>
   );
 }

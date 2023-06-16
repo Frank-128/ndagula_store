@@ -1,0 +1,35 @@
+.addCategory{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    z-index:30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.catForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30%;
+}
+.addCategory>form>input{
+    width: 100%;
+}
+.catElement{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.cat_buttons{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}

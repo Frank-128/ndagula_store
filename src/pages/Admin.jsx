@@ -2,10 +2,11 @@ import { ArrowDropDown, Close, Menu, Message, Notifications, Person, Shop } from
 import React from "react";
 import './Admin.css'
 import { notifications } from "../assets/data";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 function Admin() {
     const [openNav,setOpenNav] = React.useState(true);
-    console.log(notifications)
+    const navigate = useNavigate();
+    
   return (
     <div className="admin">
      <div className="admin_navbar">
@@ -23,7 +24,7 @@ function Admin() {
               <Message />
             </li>
             <li className="avatar_container">
-              <img src="/Goat.jpeg" className="avatar" alt="goat image" />
+              <img src="/Goat.jpeg" className="avatar1" alt="goat image" />
              <span> Ndagula</span>
              <ArrowDropDown/>
             </li>
@@ -33,9 +34,9 @@ function Admin() {
      <div className={openNav?"sidebar closeSidebar ":"sidebar"}>
         <div className="upperSidebar">
             
-                <div className="sideItem">Dashboard</div>
-                <div className="sideItem">Products</div>
-                <div className="sideItem">Orders</div>
+                <div className="sideItem" onClick={()=>{navigate('/admin/');setOpenNav(true)}}>Dashboard</div>
+                <div className="sideItem" onClick={()=>{navigate('/admin/product');setOpenNav(true)}}>Products</div>
+                <div className="sideItem" onClick={()=>{navigate('/admin/order');setOpenNav(true)}}>Orders</div>
             
         </div>
         <div className="lowerSidebar">

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from '../../axios';
 import './AddItem.css'
 
@@ -12,6 +12,7 @@ function AddItem({setOpener}) {
     const [image,setImage]= useState(null);
     const [checkedSize,setCheckedSize]=React.useState([]);
     const [checkedColor,setCheckedColor]=React.useState([]);
+    const [checkedCategory,setCheckedCategory]=React.useState([]);
     const [body,setBody]=React.useState(null);
     const handleClick = (e)=>{
         if(e.target.classList.contains('backdrop')){
@@ -32,11 +33,17 @@ function AddItem({setOpener}) {
         !checkedItem && setCheckedColor(checkedColor.filter((item)=>item!== TheColor)) 
      checkedItem && checkedColor.includes(TheColor) === false && setCheckedColor([...checkedColor,TheColor]);
     }
+    const handleCheckedCategory = (e)=>{
+        const THevalue= e.target.value;
+        const checkedItem = e.target.checked;
+        !checkedItem && setCheckedCategory(checkedCategory.filter((item)=>item!== THevalue)) 
+     checkedItem && checkedCategory.includes(THevalue) === false && setCheckedCategory([...checkedCategory,THevalue]);
+    }
     const handleChange = async (e)=>{
       e.preventDefault();
       setBody({
         'name':name,
-        'category':category,
+        'category':checkedCategory,
         'price':price,
         'size':checkedSize,
         'color':checkedColor,
@@ -47,7 +54,7 @@ function AddItem({setOpener}) {
       const formData = new FormData();
       
         formData.append('name',name)
-        formData.append('category',category)
+        formData.append('category',checkedCategory.toString())
         formData.append('price',price)
         formData.append('size',checkedSize.toString())
         formData.append('color',checkedColor.toString(),)
@@ -55,34 +62,38 @@ function AddItem({setOpener}) {
         formData.append('rating',rating)
         formData.append('image',image)
       
-      for(const [key,value] of formData.entries()){
-        console.log(`${key}:${value}`);
-      }
-        
-      const itemsList = {
-        'name':'frank',
-        'category':category,
-        'price':price,
-        'size':checkedSize,
-        'color':checkedColor,
-        'amount':amount,
-        'rating':rating,
-        'image':image,
-      }
-
-      const res = await axios.post('/addProduct',formData,{headers:{
+     
+      console.log(body);
+     try{ const res = await axios.post('/addProduct',formData,{headers:{
         "Content-Type":"multipart/form-data"
       }});
       console.log(res.data);
       setOpener(false);
-    }
-    console.log(checkedSize)
-    console.log(checkedColor)
-    console.log(body);
+    }catch(err){
+        console.log(err);
+    }}
+
+    useEffect(()=>{
+        try{
+            const fetchIt = async()=>{
+                console.log('run')
+                const res = await axios.get('/showAllCategories');
+                setCategory(res.data[0]);
+            }
+            fetchIt();
+
+        }catch(err){
+            console.log(err)
+        }
+        
+    },[])
+    
     
   return (
     <div  onClick={handleClick} className='backdrop'>
+    
         <form className='add_item'  onSubmit={handleChange} encType='multipart/form-data'>
+        
             <div className='prod_detail'>
                 <label htmlFor='name'>
                     Product name
@@ -93,7 +104,15 @@ function AddItem({setOpener}) {
                 <label htmlFor='category'>
                     Product Categories
                 </label>
-                <input type='text' id='category' required placeholder='women,men,fashion' name='category' onChange={(e)=>{setCategory(e.target.value)}}/>
+               <div className="prod_categories">
+              {category !== '' && category?.map((item)=> <div className='cat_options'>
+                <input type='checkbox' id={item.id}  value={item.id}  onChange={handleCheckedCategory} />
+                <label htmlFor={item.id}>
+                    {item.name}
+                </label>
+                </div>)}
+               
+               </div>
             </div>
             <div className='prod_detail'>
                 <label htmlFor='price'>

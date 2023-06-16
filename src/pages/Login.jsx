@@ -21,19 +21,22 @@ function Login() {
     await csrfToken();
 
     try {
-      console.log(JSON.stringify(inputs));
+      
       const res = await axios.post("/login",JSON.stringify(inputs));
       
-      console.log(res);
+      
       if(res.data.user){
 
         setTheUser(res.data.user);
-        navigate("/");
-      }
-      else{
+        if(res.data.user.role ===1){
+          navigate('/admin/')
+        }
+       else if(res.data.user.role === 0){
 
-        console.log('now what is the problem here')
+         navigate("/");
+       }
       }
+     
       
     } catch (err) {
      setErr(err)
@@ -50,7 +53,7 @@ function Login() {
   return (
     <div className="login">
       <div className="label_name">NDAGULA STORE</div>
-
+      
       <form className="login_form" onSubmit={handleSubmit}>
         <div className="login_item">
           <label htmlFor="name">username or email</label>

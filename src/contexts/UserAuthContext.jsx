@@ -8,7 +8,7 @@ const UserContext = createContext();
 
 
 export const  UserAuthContext=({children})=>{
-    const [user,setUser]=useState(JSON.parse(localStorage.getItem('user'))|| null);
+    const [user,setUser]=useState(JSON.parse(sessionStorage.getItem('user'))|| null);
     
     const csrfToken = async ()=>{
         await axios.get('http://localhost:8000/sanctum/csrf-cookie');
@@ -17,16 +17,17 @@ export const  UserAuthContext=({children})=>{
 
     const setTheUser = (avatar)=>{
      try{   
-         console.log('already set the user')
-        localStorage.setItem('user',JSON.stringify(avatar));
+         
+        sessionStorage.setItem('user',JSON.stringify(avatar));
         setUser((avatar));
     }
         catch(error){
             console.log(error);
         }
     }
-    const logOut = ()=>{
-        localStorage.removeItem('user');
+    const logOut = async()=>{
+        await axios.get('http://localhost:8000/api/logout')
+        sessionStorage.removeItem('user');
         setUser(null);
         return <Navigate to='/' />
     }

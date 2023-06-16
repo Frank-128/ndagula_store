@@ -4,6 +4,7 @@ export const gallery =[
         name:'uniform',
         image:'./uniform.jpeg',
         price:12000,
+        amount:100,
         rating:5
     },
     {
@@ -11,6 +12,7 @@ export const gallery =[
         name:'vikoi',
         image:'vikoi.jpeg',
         price:15000,
+        amount:100,
         rating:4
     },
     {
@@ -18,6 +20,7 @@ export const gallery =[
         name:'men',
         image:'men.jpeg',
         price:18000,
+        amount:100,
         rating:5
     },
     {
@@ -25,6 +28,7 @@ export const gallery =[
         name:'women',
         image:'./women.jpg',
         price:17000,
+        amount:100,
         rating:3
     },
     {
@@ -32,6 +36,7 @@ export const gallery =[
         name:'bedsheet',
         image:'bedsheet.jpeg',
         price:13000,
+        amount:100,
         rating:4
     },
     {
@@ -39,6 +44,55 @@ export const gallery =[
         name:'curtains',
         image:'curtains.jpeg',
         price:48000,
+        amount:100,
+        rating:3
+    },
+    {
+        id:1,
+        name:'uniform',
+        image:'./uniform.jpeg',
+        price:12000,
+        amount:100,
+        rating:5
+    },
+    {
+        id:2,
+        name:'vikoi',
+        image:'vikoi.jpeg',
+        price:15000,
+        amount:100,
+        rating:4
+    },
+    {
+        id:3,
+        name:'men',
+        image:'men.jpeg',
+        price:18000,
+        amount:100,
+        rating:5
+    },
+    {
+        id:4,
+        name:'women',
+        image:'./women.jpg',
+        price:17000,
+        amount:100,
+        rating:3
+    },
+    {
+        id:5,
+        name:'bedsheet',
+        image:'bedsheet.jpeg',
+        price:13000,
+        amount:100,
+        rating:4
+    },
+    {
+        id:6,
+        name:'curtains',
+        image:'curtains.jpeg',
+        price:48000,
+        amount:100,
         rating:3
     }
 ]
@@ -83,8 +137,8 @@ export const notifications = [
 export const orders = [
     {
         month:"jan",
-       jeans:230,
-       pullover:220,
+        jeans:230,
+        pullover:220,
         curtains:200,
         nets:60,
 
@@ -210,4 +264,195 @@ export const logs = [
         message:"Check out your latest reminders",
         time:"23:04 Tuesday"
     }
+]
+
+export const categories = [
+    {
+        name:"women",
+        image:"women.jpg"
+    },
+    {
+        name:"men",
+        image:"men.jpeg"
+    },
+    {
+        name:"school",
+        image:"uniform.jpeg"
+    },
+    {
+        name:"home",
+        image:"bedsheet.jpeg"
+    },
+    {
+        name:"curtains",
+        image:"curtains.jpeg"
+    },
+    {
+        name:"sports",
+        image:"mbappe.jpg"
+    },
+    {
+        name:"curtains",
+        image:"curtains.jpeg"
+    },
+    {
+        name:"sports",
+        image:"mbappe.jpg"
+    },
+]
+
+export const orderInformation = [
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Frank",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"pending",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"bad",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"pending",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"bad",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Frank",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Frank",
+        total:24000,
+        profit:5000,
+        status:"bad",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"bad",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"pending",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"filled",
+        updated:"Today"
+    },
+    {
+        id:121212,
+        created:"Jul 1,2022",
+        customer:"Rico",
+        total:24000,
+        profit:5000,
+        status:"pending",
+        updated:"Today"
+    },
 ]
